@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href='styles/main.css' rel=stylesheet>
+    </head>
+    <body>
+        <div class='container'>
+            <div>
+                <label>x:
+                    <input id=x type=number value=2>
+                </label>
+                <label>y:
+                    <input id=y type=number value=3>
+                </label>       
+            </div>
+            <div>
+                <input type=radio name=op value=addition checked>Addition
+                <input type=radio name=op value=subtraction>Subtraction
+                <input type=radio name=op value=multiplication>Multiplication
+                <input type=radio name=op value=subtraction>Subtraction
+            </div>
+            <div>
+                <button id='calculate' name=calculate class='btn btn-default'>Calculate</button>  
+            </div>
+            <div>
+                <span class="label label-primary x"></span> 
+                <span class="label label-info op"></span>  
+                <span class="label label-primary y"></span> = 
+                <span class="label label-success result"></span>
+            </div>
+        </div>
+
+
+        <script>
+            var btn = document.getElementById('calculate');
+            btn.addEventListener('click', function(event) {
+                var x = document.getElementById('x').value;
+                var y = document.getElementById('y').value;
+                var op = document.querySelector('input[name="op"]:checked').value;
+
+                // event.preventDefault();
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == XMLHttpRequest.DONE ) { 
+                
+                        document.getElementsByClassName('x')[0].innerHTML = x;
+                        document.getElementsByClassName('y')[0].innerHTML = y;
+                        document.getElementsByClassName('op')[0].innerHTML = op;
+                        document.getElementsByClassName('result')[0].innerHTML = xhr.responseText;
+                    
+                    }
+                }
+                xhr.open('POST', 'api.php', true);
+
+                var data = new FormData();
+                data.append('x', x);
+                data.append('y', y);
+                data.append('op', op);
+
+                xhr.send(data);
+            }, true);
+        </script>
+    </body>
+</html>
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+        
+        <title> Excercising abstract calc </title>
+    </head>
+    <body>  
+        <center>   
+            <form action="abstractCalc.php" method="POST">
+                    <div >
+                            <label>
+                                <input type="number" name="a" value="a">
+                                Num1
+                            </label>
+                        </div>
+                        <div >
+                                <label>
+                                    <input type="number" name="b" value="b">
+                                    Num2
+                                </label>
+                            </div>
+                    <div class="form-group"> <!-- Radio group !-->
+                        <label class="control-label">Please select calc action</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="calc_action" value="+">
+                                +
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="calc_action" value="-">
+                                -
+                            </label>
+                        </div>
+                        <div class="radio">
+                                <label>
+                                    <input type="radio" name="calc_action" value="*">
+                                    *
+                                </label>
+                        </div>
+                        <div class="radio">
+                                <label>
+                                    <input type="radio" name="calc_action" value="/">
+                                    /
+                                </label>
+                        </div>
+                    </div>	
+                    
+                    <div class="form-group">  
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="abs" value="abs">
+                            ABS
+                          </label>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-group"> <!-- Submit button !-->
+                        <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+                    </div>
+
+                    <div class="form-group"> 
+                            <input type="text" name="result" value="/">
+                    </div>
+            </form>
+
+        </center>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+       <script>
+           
+        </script>
+    </body>
+</html>
